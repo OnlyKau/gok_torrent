@@ -11,10 +11,10 @@ import (
 	"github.com/jackpal/bencode-go"
 )
 
-// Port to listen on
+
 const Port uint16 = 6881
 
-// TorrentFile encodes the metadata from a .torrent file
+
 type TorrentFile struct {
 	Announce    string
 	InfoHash    [20]byte
@@ -36,7 +36,7 @@ type bencodeTorrent struct {
 	Info     bencodeInfo `bencode:"info"`
 }
 
-// DownloadToFile downloads a torrent and writes it to a file
+
 func (t *TorrentFile) DownloadToFile(path string) error {
 	var peerID [20]byte
 	_, err := rand.Read(peerID[:])
@@ -75,7 +75,7 @@ func (t *TorrentFile) DownloadToFile(path string) error {
 	return nil
 }
 
-// Open parses a torrent file
+
 func Open(path string) (TorrentFile, error) {
 	file, err := os.Open(path)
 	if err != nil {
@@ -102,7 +102,7 @@ func (i *bencodeInfo) hash() ([20]byte, error) {
 }
 
 func (i *bencodeInfo) splitPieceHashes() ([][20]byte, error) {
-	hashLen := 20 // Length of SHA-1 hash
+	hashLen := 20 
 	buf := []byte(i.Pieces)
 	if len(buf)%hashLen != 0 {
 		err := fmt.Errorf("Received malformed pieces of length %d", len(buf))
