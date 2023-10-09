@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"gok_torrent/bitfield"
 	"gok_torrent/handshake"
+	"gok_torrent/message"
 	"gok_torrent/peers"
 	"net"
 	"time"

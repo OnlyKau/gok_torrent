@@ -5,6 +5,7 @@ import (
 	"crypto/sha1"
 	"fmt"
 	"gok_torrent/client"
+	"gok_torrent/message"
 	"gok_torrent/peers"
 	"log"
 	"runtime"
