@@ -7,15 +7,15 @@ import (
 	"strconv"
 )
 
-// Peer encodes connection information for a peer
+
 type Peer struct {
 	IP   net.IP
 	Port uint16
 }
 
-// Unmarshal parses peer IP addresses and ports from a buffer
+
 func Unmarshal(peersBin []byte) ([]Peer, error) {
-	const peerSize = 6 // 4 for IP, 2 for port
+	const peerSize = 6 
 	numPeers := len(peersBin) / peerSize
 	if len(peersBin)%peerSize != 0 {
 		err := fmt.Errorf("Received malformed peers")
